@@ -803,12 +803,14 @@ export class GLTFLoader implements IGLTFLoader {
             if (node.mesh == undefined) {
                 // !!!!!!!!!!!!!!!!!!! GLTF Export/Import Workaround
                 //@ts-ignore
-                transformNode._nonmeshAuxilaryNode = true;
+
+                transformNode.metadata = { ...(transformNode.metadata || {}), _nonmeshAuxilaryNode: true };
                 node._babylonTransformNode = transformNode;
             } else {
                 // !!!!!!!!!!!!!!!!!!! GLTF Export/Import Workaround
                 //@ts-ignore
-                transformNode._skinAuxilaryNode = true;
+                transformNode.metadata = { ...(transformNode.metadata || {}), _skinAuxilaryNode: true };
+
                 node._babylonTransformNodeForSkin = transformNode;
             }
             loadNode(transformNode);
