@@ -21,7 +21,9 @@ import { SceneLoader, SceneLoaderAnimationGroupLoadingMode } from "core/Loading/
 import { Reflector } from "core/Misc/reflector";
 import { GLTFComponent } from "./tools/gltfComponent";
 // TODO - does it still work if loading the modules from the correct files?
+                //@ts-ignore
 import type { GLTFData } from "serializers/glTF/2.0/index";
+                //@ts-ignore
 import { GLTF2Export } from "serializers/glTF/2.0/index";
 import { FloatLineComponent } from "shared-ui-components/lines/floatLineComponent";
 import type { IScreenshotSize } from "core/Misc/interfaces/screenshotSize";
@@ -39,6 +41,7 @@ import { LockObject } from "shared-ui-components/tabs/propertyGrids/lockObject";
 import GIF from "gif.js.optimized";
 import { Camera } from "core/Cameras/camera";
 import { Light } from "core/Lights/light";
+                //@ts-ignore
 import { GLTFFileLoader } from "loaders/glTF/glTFFileLoader";
 
 const envExportImageTypes = [
@@ -274,6 +277,7 @@ export class ToolsTabComponent extends PaneComponent {
             return true;
         };
 
+                        //@ts-ignore
         GLTF2Export.GLBAsync(scene, "scene", { shouldExportNode: (node) => shouldExport(node) }).then(
             (glb: GLTFData) => {
                 this._isExportingGltf = false;

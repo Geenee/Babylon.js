@@ -802,14 +802,16 @@ export class GLTFLoader implements IGLTFLoader {
             this._babylonScene._blockEntityCollection = false;
             if (node.mesh == undefined) {
                 // !!!!!!!!!!!!!!!!!!! GLTF Export/Import Workaround
+                //@ts-ignore
                 transformNode._nonmeshAuxilaryNode = true;
                 node._babylonTransformNode = transformNode;
-            }
-            else {
+            } else {
                 // !!!!!!!!!!!!!!!!!!! GLTF Export/Import Workaround
+                //@ts-ignore
                 transformNode._skinAuxilaryNode = true;
                 node._babylonTransformNodeForSkin = transformNode;
-            }            loadNode(transformNode);
+            }
+            loadNode(transformNode);
         }
 
         if (node.mesh != undefined) {
@@ -842,14 +844,17 @@ export class GLTFLoader implements IGLTFLoader {
                                         // Place the skinned mesh node as a sibling of the skeleton root node.
                                         // Handle special case when the parent of the skeleton root is the skinned mesh.
                                         // !!!!!!!!!!!!!!!!!!! GLTF Export/Import Workaround
-                                        var parentNode = ArrayItem.Get("/skins/".concat(skin.index, "/skeleton"), _this._gltf.nodes, skin.skeleton);
+                                        //@ts-ignore
+                                        const parentNode = ArrayItem.Get("/skins/".concat(skin.index, "/skeleton"), this._gltf.nodes, skin.skeleton);
+                                        //@ts-ignore
                                         if (node.index === parentNode.parent.index) {
                                             babylonTransformNode.parent = babylonTransformNodeForSkin.parent;
-                                        }
-                                        else {
+                                        } else {
+                                            //@ts-ignore
                                             babylonTransformNode.parent = parentNode._babylonTransformNode;
                                         }
-                                    }else {
+                                    } else {
+                                        //@ts-ignore
                                         babylonTransformNode.parent = this._rootBabylonMesh;
                                     }
 

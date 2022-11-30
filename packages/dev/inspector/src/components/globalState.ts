@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 // eslint-disable-next-line import/no-internal-modules
+//@ts-ignore
 import { GLTFLoaderAnimationStartMode, GLTFLoaderCoordinateSystemMode } from "loaders/glTF/index";
 import type { IGLTFValidationResults } from "babylonjs-gltf2interface";
 
@@ -16,6 +17,7 @@ import type { PropertyChangedEvent } from "./propertyChangedEvent";
 import { ReplayRecorder } from "./replayRecorder";
 import { DataStorage } from "core/Misc/dataStorage";
 // eslint-disable-next-line import/no-internal-modules
+//@ts-ignore
 import type { IGLTFLoaderExtension, GLTFFileLoader } from "loaders/glTF/index";
 
 export class GlobalState {
@@ -134,7 +136,7 @@ export class GlobalState {
                 (loader as any)[key] = loaderState[key];
             }
         }
-
+        //@ts-ignore
         loader.onExtensionLoadedObservable.add((extension: import("loaders/glTF/index").IGLTFLoaderExtension) => {
             const extensionState = this.glTFLoaderExtensionDefaults[extension.name];
             if (extensionState !== undefined) {
