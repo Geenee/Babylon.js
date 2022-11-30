@@ -10,6 +10,7 @@ import { faCheck, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import { TextLineComponent } from "shared-ui-components/lines/textLineComponent";
 // TODO - does it still work if loading the modules from the correct files?
 // eslint-disable-next-line import/no-internal-modules
+                //@ts-ignore
 import { GLTFLoaderCoordinateSystemMode, GLTFLoaderAnimationStartMode } from "loaders/glTF/index";
 import type { Nullable } from "core/types";
 import type { Observer } from "core/Misc/observable";

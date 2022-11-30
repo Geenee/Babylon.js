@@ -358,6 +358,7 @@ export class Inspector {
             this._GlobalState.onPluginActivatedObserver = SceneLoader.OnPluginActivatedObservable.add((rawLoader) => {
                 this._GlobalState.resetGLTFValidationResults();
 
+                //@ts-ignore
                 const loader = rawLoader as import("loaders/glTF/index").GLTFFileLoader;
                 if (loader.name === "gltf") {
                     this._GlobalState.prepareGLTFPlugin(loader);

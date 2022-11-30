@@ -19,7 +19,8 @@ import type {
 import { AccessorType, ImageMimeType, MeshPrimitiveMode, AccessorComponentType, CameraType } from "babylonjs-gltf2interface";
 
 import type { FloatArray, Nullable, IndicesArray } from "core/types";
-import type { Matrix } from "core/Maths/math.vector";
+                //@ts-ignore
+import { Matrix, TmpVectors } from "core/Maths/math.vector";
 import { Vector2, Vector3, Vector4, Quaternion } from "core/Maths/math.vector";
 import { Color3, Color4 } from "core/Maths/math.color";
 import { Tools } from "core/Misc/tools";
@@ -48,6 +49,10 @@ import { _GLTFAnimation } from "./glTFAnimation";
 import { Camera } from "core/Cameras/camera";
 import { EngineStore } from "core/Engines/engineStore";
 import { MultiMaterial } from "core/Materials/multiMaterial";
+
+// Matrix that converts handedness on the X-axis.
+                //@ts-ignore
+const convertHandednessMatrix = Matrix.Compose(new Vector3(-1, 1, 1), Quaternion.Identity(), Vector3.Zero());
 
 /**
  * Utility interface for storing vertex attribute data

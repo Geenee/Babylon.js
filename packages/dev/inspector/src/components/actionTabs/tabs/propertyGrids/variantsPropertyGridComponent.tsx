@@ -10,6 +10,7 @@ import type { GlobalState } from "../../../globalState";
 import { OptionsLineComponent } from "shared-ui-components/lines/optionsLineComponent";
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
+                //@ts-ignore
 declare type KHR_materials_variants = import("loaders/glTF/2.0/Extensions/KHR_materials_variants").KHR_materials_variants;
 
 interface IVariantsPropertyGridComponentProps {
