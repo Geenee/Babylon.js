@@ -1871,10 +1871,10 @@ export class _Exporter {
     private _isBabylonCoordinateSystemConvertingNode(node: Node): boolean {
         if (node instanceof TransformNode) {
             // Transform
-            const matrix = node.getWorldMatrix().multiplyToRef(convertHandednessMatrix, TmpVectors.Matrix[0]);
-            if (!matrix.isIdentity()) {
-                return false;
-            }
+            // const matrix = node.getWorldMatrix().multiplyToRef(convertHandednessMatrix, TmpVectors.Matrix[0]);
+            // if (!matrix.isIdentity()) {
+            //     return false;
+            // }
 
             // Geometry
             if ((node instanceof Mesh && node.geometry !== null) || (node instanceof InstancedMesh && node.sourceMesh.geometry !== null)) {
